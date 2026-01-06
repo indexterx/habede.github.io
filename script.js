@@ -22,7 +22,8 @@ function createConfetti() {
   return {
     x: Math.random() * canvas.width,
     y: -40,
-    speed: Math.random() * 5 + 10,
+    speed: Math.random() * 6 + 6,
+    gravity: 0.6,
     size: Math.random() * 30 + 24,
     rot: Math.random() * 360,
     rotSpd: Math.random() * 2 - 1,
