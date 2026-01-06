@@ -2,59 +2,98 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Arial', sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
+/* BODY */
 body {
-  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
   height: 100vh;
   overflow: hidden;
 }
 
-canvas {
+/* BACKGROUND FOTO */
+.bg {
   position: fixed;
-  top: 0;
-  left: 0;
+  inset: 0;
+  display: flex;
   z-index: 0;
 }
 
-.card {
-  position: relative;
-  z-index: 1;
-  background: white;
-  padding: 30px;
-  border-radius: 15px;
-  width: 90%;
-  max-width: 400px;
-  margin: 120px auto;
-  text-align: center;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+.bg-left {
+  flex: 1;
+  background: url("bg1.jpg") center/cover no-repeat;
 }
 
-h1 {
+.bg-right {
+  flex: 1;
+  background: url("bg2.jpg") center/cover no-repeat;
+}
+
+/* CONFETTI CANVAS */
+#confetti {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* CARD */
+.card {
+  position: relative;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.88);
+  width: 90%;
+  max-width: 420px;
+  margin: 110px auto;
+  padding: 30px 25px;
+  text-align: center;
+  border-radius: 16px;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+/* JUDUL */
+.card h1 {
+  font-size: 24px;
   margin-bottom: 20px;
 }
 
-button {
+/* TOMBOL */
+.card button {
   background: #ff5e78;
-  color: white;
+  color: #fff;
   border: none;
-  padding: 12px 20px;
-  border-radius: 8px;
-  cursor: pointer;
+  padding: 12px 22px;
+  border-radius: 10px;
   font-size: 16px;
+  cursor: pointer;
 }
 
-button:hover {
-  background: #ff3d5f;
+.card button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
+/* TEKS UCAPAN */
 #message {
   margin-top: 20px;
   font-size: 16px;
   line-height: 1.5;
+  white-space: pre-line;
 }
 
-.hidden {
-  display: none;
+/* RESPONSIVE HP */
+@media (max-width: 600px) {
+  .bg {
+    flex-direction: column;
+  }
+
+  .bg-left,
+  .bg-right {
+    height: 50%;
+  }
+
+  .card {
+    margin: 80px auto;
+  }
 }
